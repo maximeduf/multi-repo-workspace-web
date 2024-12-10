@@ -1,13 +1,18 @@
-import { APP_BASE_HREF } from '@angular/common';
-import { CommonEngine, isMainModule } from '@angular/ssr/node';
+import {
+  AngularNodeAppEngine,
+  CommonEngine,
+  createNodeRequestHandler,
+  isMainModule,
+  writeResponseToNodeResponse
+} from '@angular/ssr/node';
 import express from 'express';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import bootstrap from './main.server';
+import { APP_BASE_HREF } from '@angular/common';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
-const indexHtml = join(serverDistFolder, 'index.server.html');
 
 const app = express();
 const commonEngine = new CommonEngine();
@@ -27,25 +32,20 @@ const commonEngine = new CommonEngine();
 /**
  * Serve static files from /browser
  */
-app.get(
-  '**',
-  (req, res, next) => {
-    console.log(`Serving static file for ${req.originalUrl}`);
-    next();
-  },
+app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',
-    index: 'index.html'
+    index: false,
+    redirect: false
   })
 );
 
 /**
  * Handle all other requests by rendering the Angular application.
  */
-app.get('**', (req, res, next) => {
-  const { protocol, originalUrl, baseUrl, headers } = req;
-
-  console.log(`Rendering route ${originalUrl}`);
+const indexHtml = resolve(browserDistFolder, 'index.html');
+app.use('/**', (req, res, next) => {
+  const {protocol, originalUrl, baseUrl, headers} = req;
 
   commonEngine
     .render({
@@ -53,10 +53,10 @@ app.get('**', (req, res, next) => {
       documentFilePath: indexHtml,
       url: `${protocol}://${headers.host}${originalUrl}`,
       publicPath: browserDistFolder,
-      providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }]
+      providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }]
     })
     .then((html) => res.send(html))
-    .catch((err) => next(err));
+    .catch(next);
 });
 
 /**
@@ -69,3 +69,8 @@ if (isMainModule(import.meta.url)) {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }
+
+/**
+ * The request handler used by the Angular CLI (dev-server and during build).
+ */
+export const reqHandler = createNodeRequestHandler(app);
