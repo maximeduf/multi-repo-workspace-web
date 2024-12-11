@@ -1,0 +1,28 @@
+.main-frame {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 4fr 1fr;
+  grid-template-areas:
+    "main   nav"
+    "main   nav"
+    "main   nav"
+    "footer footer";
+
+  & > main {
+    grid-area: main;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+
+  & > aside {
+    grid-area: nav;
+    background-color: #f8f9fa;
+    border-right: 1px solid #e9ecef;
+    padding: 1rem;
+  }
+
+  & > span:last-of-type {
+    grid-area: footer;
+    text-align: center;
+  }
+}
