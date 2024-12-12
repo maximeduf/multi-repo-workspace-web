@@ -1,8 +1,7 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
+import { NavUtilsService } from "./nav-utils.service";
 
-import { NavUtilsService } from './nav-utils.service';
-
-describe('NavUtilsService', () => {
+describe("NavUtilsService", () => {
   let service: NavUtilsService;
 
   beforeEach(() => {
@@ -10,7 +9,7 @@ describe('NavUtilsService', () => {
     service = TestBed.inject(NavUtilsService);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(service).toBeTruthy();
   });
 });

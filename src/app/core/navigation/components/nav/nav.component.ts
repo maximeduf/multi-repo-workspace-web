@@ -11,6 +11,5 @@ import { NavUtilsService } from "../../services/nav-utils/nav-utils.service";
 export class NavComponent {
   private _navUtilsService = inject(NavUtilsService);
 
-  public navItems =
-    this._navUtilsService.getNavItemsFor("NavComponent");
+  public navItems = this._navUtilsService.getNavItemsFor("NavComponent");
 }

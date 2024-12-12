@@ -6,7 +6,6 @@ import {
   RoutesWithNavigation,
   RouteWithNavigation
 } from "../../model/navigatable-item.model";
-import path from "path";
 
 /**
  * Service for navigation utilities.

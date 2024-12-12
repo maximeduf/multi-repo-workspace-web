@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'mrw-about',
+  selector: "mrw-about",
   imports: [],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  templateUrl: "./about.component.html",
+  styleUrl: "./about.component.scss"
 })
-export class AboutComponent {
-
-}
+export class AboutComponent {}

@@ -47,5 +47,5 @@ export const routes: Routes = [
         label: "IDK"
       }
     }
-  },
+  }
 ] as RouteWithNavigation[];
