@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavComponent } from "./core/components/nav/nav.component";
+import { NavComponent } from './core/navigation/components/nav/nav.component';
 import { MainFrameComponent } from "./core/components/main-frame/main-frame.component";
 
 @Component({
