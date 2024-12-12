@@ -5,7 +5,7 @@ import {
   NavigationItems,
   RoutesWithNavigation,
   RouteWithNavigation
-} from "../../model/navigatable-item.model";
+} from "../../models/navigatable-item.model";
 
 /**
  * Service for navigation utilities.

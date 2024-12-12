@@ -2,7 +2,7 @@ import { Routes } from "@angular/router";
 import { HomeComponent } from "./pages/home/home.component";
 import { AboutComponent } from "./pages/about/about.component";
 import { DocsComponent } from "./pages/docs/docs.component";
-import { RouteWithNavigation } from "./core/navigation/model/navigatable-item.model";
+import { RouteWithNavigation } from "./core/navigation/models/navigatable-item.model";
 
 /**
  * Routes of the application. Casted to RoutesWithNavigation to include navigation data.
