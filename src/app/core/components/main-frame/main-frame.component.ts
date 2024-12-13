@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavComponent } from "../../navigation/components/nav/nav.component";
+import { NavComponent } from "../../../modules/navigation/components/nav/nav.component";
 
 @Component({
   selector: "mrw-main-frame",

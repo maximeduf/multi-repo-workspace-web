@@ -1,6 +1,6 @@
 import { Component, inject } from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
-import { HeroComponent } from "../../core/components/hero/hero.component";
+import { HeroComponent } from "../../modules/home/components/hero/hero.component";
 
 @Component({
   selector: "mrw-home",
