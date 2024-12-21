@@ -4,9 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "startb": "npm run build && npm run serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "watch": "nodemon",
     "test": "ng test",
+    "serve": "npm run serve:ssr:mrw-web-front",
     "serve:ssr:mrw-web-front": "node dist/mrw-web-front/server/server.mjs",
     "format": "prettier --write \"src/**/*.{ts,js,json,css,scss,html}\""
   },

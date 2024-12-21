@@ -1,0 +1,11 @@
+{
+    "watch": [
+        "src"
+    ],
+    "ext": "js,ts,json",
+    "ignore": [
+        "dist",
+        "node_modules"
+    ],
+    "exec": "npm run startb"
+}
