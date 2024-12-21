@@ -10,11 +10,14 @@ To start a local development server, run:
 npm run watch
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:400/`. The application will automatically rebuild and run whenever you modify any of the source files.
+Once the server is running, open your browser and navigate to `http://localhost:4000/`. The application will automatically rebuild and run whenever you modify any of the source files.
 
 ## Pre commit hooks
+
 **Install Husky**
-`npx husky install`
+```bash
+npm run prepare
+```
 
 ## Building
 
