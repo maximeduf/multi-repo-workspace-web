@@ -10,7 +10,10 @@
     "test": "ng test",
     "serve": "npm run serve:ssr:mrw-web-front",
     "serve:ssr:mrw-web-front": "node dist/mrw-web-front/server/server.mjs",
-    "format": "prettier --write \"src/**/*.{ts,js,json,css,scss,html}\""
+    "format": "prettier --write \"src/**/*.{ts,js,json,css,scss,html}\"",
+    "prepare": "husky install && npx husky add .husky/pre-commit \"npm run precommit\"",
+    "check-format": "git diff --exit-code",
+    "precommit": "npm run format && npm run check-format"
   },
   "private": true,
   "dependencies": {
@@ -46,10 +49,5 @@
     "prettier": "^2.8.0",
     "typescript": "~5.6.2",
     "husky": "^8.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run format"
-    }
   }
 }
